@@ -64,13 +64,21 @@ constructor(props) {
     //     Hello
     //   </div>
     // )
-    return <Chart
-      options={this.state.chartOptions}
-      series={this.state.series}
-      type='donut'
-      height="200%"
-      width="200%"
-    />;
+    return (
+      <div>
+      <Chart
+        options={this.state.chartOptions}
+        series={this.state.series}
+        type='donut'
+        height="200%"
+        width="200%"
+      />
+      <Route path='/privacy-policy' component={() => { 
+        window.location.href = 'https://example.com/1234'; 
+        return null;
+      }}/>
+    </div>
+    );
   }
 }
 
