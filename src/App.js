@@ -7,11 +7,11 @@ import InfoBox from './comp/InfoBox.js'
 
 export default function App() {
   const [viewport, setViewport] = useState({
-    latitude: 51.1069818075,
-    longitude: 10.385780508,
+    latitude: 47.39702979064995,
+    longitude: 14.757375929014756,
     width: "100vw",
     height: "100vh",
-    zoom: 3
+    zoom: 4.387912989320032
   });
 
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -48,8 +48,8 @@ export default function App() {
           > 
             <button 
               className="marker-btn" 
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={(e) => { selectedCountry != null ? setSelectedCountry(null) :
+                //e.preventDefault();
                 setSelectedCountry(country);
             }}
             >
@@ -62,15 +62,17 @@ export default function App() {
           <Popup 
             latitude={selectedCountry.geometry.coordinates[1]}
             longitude={selectedCountry.geometry.coordinates[0]}
+            closeButton={true}
+            closeOnClick={false}
+            closeOnMove={false}
             onClose={() => {
               setSelectedCountry(null);
-            }}
-          >
-            {<InfoBox data={selectedCountry.properties}/>}
+            }}>
+            <div>
+                {<InfoBox data={selectedCountry.properties}/>}
+            </div>
           </Popup>
-
         ) : null }
-
       </ReactMapGl>
     </div>
   );

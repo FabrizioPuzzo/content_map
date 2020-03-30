@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Chart from 'react-apexcharts';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 // function Footer() {
 //   return(
@@ -30,16 +31,16 @@ constructor(props) {
           margin: 20,
           offsetY: 0,
           style: {
-            fontSize: "15px"
+            fontSize: "20px"
           }
         },
         subtitle: {
           text: "Anzahl Unternehmen pro Wirtschaftssektor",
           align: "left",
           margin: 20,
-          offsetY: 20,
+          offsetY: 30,
           style: {
-            fontSize: "9px"
+            fontSize: "12px"
           }
         },
         chart: {
@@ -47,6 +48,15 @@ constructor(props) {
           background: '#f4f4f4',
           foreColor: '#333'
         },
+
+        legend: {
+          position: 'bottom',
+          itemMargin: {
+            horizontal: 5,
+            vertical: 5
+        }
+        },
+
         plotOptions: {
           pie: {
             donut: {
@@ -66,18 +76,17 @@ constructor(props) {
     // )
     return (
       <div>
-      <Chart
-        options={this.state.chartOptions}
-        series={this.state.series}
-        type='donut'
-        height="200%"
-        width="200%"
-      />
-      <Route path='/privacy-policy' component={() => { 
-        window.location.href = 'https://example.com/1234'; 
-        return null;
-      }}/>
-    </div>
+        <p> </p>
+        <Chart
+          options={this.state.chartOptions}
+          series={this.state.series}
+          type='donut'
+          height="200%"
+          width="100%"
+        />
+        <p> </p>
+        <a target="_blank" href={this.props.data.SOURCE}><font size="10px">Zur Quelle</font></a>
+      </div>
     );
   }
 }

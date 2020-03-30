@@ -22,3 +22,13 @@ code {
   width: 20px;
   height: 20px;
 }
+
+/* Marker tweaks */
+.mapboxgl-popup {
+  padding-bottom: 100px;
+}
+
+.mapboxgl-popup-close-button {
+  width: 20px;
+  height: 20px;
+}
