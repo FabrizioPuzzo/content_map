@@ -1,94 +1,124 @@
 import React, {Component} from "react";
-import Chart from 'react-apexcharts';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-
-// function Footer() {
-//   return(
-//     <h1>FOOTER</h1>
-//   )
-// }
-
-// export default Footer
+import * as ReactBootStrap from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroupItem from 'react-bootstrap/ListGroupItem';
+import Image from 'react-bootstrap/Image';
+import TwitterCircle from '../img/twitter_circle.svg';
+import LinkedInIcon from '../img/linkedin.svg';
+import GitHubIcon from '../img/github.svg';
 
 class InfoBox extends Component {
 
-constructor(props) {
+  constructor(props) {
     super(props);
     
     this.state = {
-      series:  props.data.NUM_COMPANIES,
-      chartOptions: {
-        labels: props.data.SECTORS,
-        dataLabels: {
-          enabled: true,
-          formatter: function (val) {
-            return Number((val).toFixed(0)) + "%"
-          }
-        },
-        title: {
-          text: this.props.data.NAME,
-          align: "left",
-          margin: 20,
-          offsetY: 0,
-          style: {
-            fontSize: "20px"
-          }
-        },
-        subtitle: {
-          text: "Anzahl Unternehmen pro Wirtschaftssektor",
-          align: "left",
-          margin: 20,
-          offsetY: 30,
-          style: {
-            fontSize: "12px"
-          }
-        },
-        chart: {
-          type: 'donut',
-          background: '#f4f4f4',
-          foreColor: '#333'
-        },
-
-        legend: {
-          position: 'bottom',
-          itemMargin: {
-            horizontal: 5,
-            vertical: 5
-        }
-        },
-
-        plotOptions: {
-          pie: {
-            donut: {
-              size: '45%'
-            }
-          }
-        }
+      user:  props.data.user
       }
     }
-  }
 
-  render() {    
-    // return(
-    //   <div>
-    //     Hello
-    //   </div>
-    // )
+  render() { 
     return (
-      <div>
-        <p> </p>
-        <Chart
-          options={this.state.chartOptions}
-          series={this.state.series}
-          type='donut'
-          height="200%"
-          width="100%"
-        />
-        <p> </p>
-        <a target="_blank" href={this.props.data.SOURCE}><font size="10px">Zur Quelle</font></a>
-      </div>
+      <Container>
+        <Row>
+          <Col>
+          
+            <Card style={{ width: '18rem' }}>
+              <div className="cardImg" style={{backgroundImage: "url("+ this.props.data.user.profile_banner_url +")" }}>
+                <div className="cardProfileImgBack" style={{backgroundImage: `url(${TwitterCircle})` }}>
+                  <div className="cardImgContent">
+                    <Image src={this.props.data.user.profile_image_url_https} roundedCircle />
+                  </div>
+                </div>
+              </div>
+
+              <Card.Body>
+                <Card.Title><strong>{this.props.data.user.name}</strong></Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">@{this.props.data.user.screen_name}</Card.Subtitle>
+                <Card.Text>{this.props.data.user.description}</Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroupItem><strong>Twitter Information</strong></ListGroupItem>
+                <ListGroupItem>Joined: {this.props.data.user_joined}</ListGroupItem>
+                <ListGroupItem>Follower: {this.props.data.user.followers_count}</ListGroupItem>
+              </ListGroup>
+              <Card.Body>
+                <Button target="_blank" href={"https://twitter.com/" + this.props.data.user.screen_name}>Twitter Homepage</Button> 
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col>
+            <div className="analysisBannerImg">
+                <div className="analysisBannerContent">
+                  <h3>Tweet Analysis - NLP</h3>
+                  <p>{this.props.data.start_analysis} to {this.props.data.end_analysis}</p>
+                </div>
+            </div>
+
+          
+            <Table striped bordered hover>
+              <thead>
+              <tr>
+                  <th>Entity</th>
+                  <th>Times mentioned</th> 
+                  <th>Average Sentiment</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <td>{this.props.data.entities[0]}</td>
+                  <td>{this.props.data.entity_count[0]}</td>
+                  <td>{(Math.round(this.props.data.sentiments[0] * 10) / 10).toFixed(2)}</td>
+              </tr>
+              <tr>
+                  <td>{this.props.data.entities[1]}</td>
+                  <td>{this.props.data.entity_count[1]}</td>
+                  <td>{(Math.round(this.props.data.sentiments[1] * 10) / 10).toFixed(2)}</td>
+              </tr>
+              <tr>
+                  <td>{this.props.data.entities[2]}</td>
+                  <td>{this.props.data.entity_count[2]}</td>
+                  <td>{(Math.round(this.props.data.sentiments[2] * 10) / 10).toFixed(2)}</td>
+              </tr>
+              <tr>
+                  <td>{this.props.data.entities[3]}</td>
+                  <td>{this.props.data.entity_count[3]}</td>
+                  <td>{(Math.round(this.props.data.sentiments[3] * 10) / 10).toFixed(2)}</td>
+              </tr>
+              <tr>
+                  <td>{this.props.data.entities[4]}</td>
+                  <td>{this.props.data.entity_count[4]}</td>
+                  <td>{(Math.round(this.props.data.sentiments[4] * 10) / 10).toFixed(2)}</td>
+              </tr>
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+          <a className="authorBar"> Made by <strong>Fabrizio Puzzo</strong></a>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Col xs lg="1">
+            <a className="smIconBar" style={{backgroundImage: "url("+ LinkedInIcon +")" }} target="_blank" href= "https://www.linkedin.com/in/fabrizio-puzzo/">
+            </a>
+          </Col>
+          <Col xs lg="1">
+            <a className="smIconBar" style={{backgroundImage: "url("+ GitHubIcon +")" }} target="_blank" href= "https://github.com/FabrizioPuzzo">
+            </a>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
 
 export default InfoBox;
+
+/*<p> Tweets analysed from {this.props.data.start_analysis} to {this.props.data.end_analysis}</p>*/

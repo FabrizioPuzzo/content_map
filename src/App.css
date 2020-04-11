@@ -36,3 +36,79 @@
     transform: rotate(360deg);
   }
 }
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cellContainer {
+  width: 25%;
+  float: left;
+}
+
+.cardImg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.cardProfileImgBack {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.cardImgContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+}
+
+.analysisBannerImg {
+  height: 120px;
+  background-color: #1DA1F2;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.analysisBannerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+}
+
+.smIconBar{
+  height: 40px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.authorBar {
+  height: 20px;
+  margin: 20px;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}

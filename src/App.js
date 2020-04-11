@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import ReactMapGl, {Marker, Popup } from "react-map-gl";
-import * as countryData from "./data/data_country.json";
+import * as countryData from "./data/data_user.json";
 import InfoBox from './comp/InfoBox.js'
 
 export default function App() {
@@ -14,12 +14,12 @@ export default function App() {
     zoom: 4.387912989320032
   });
 
-  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
     const listener = (e) => {
       if (e.key === "Escape"){
-        setSelectedCountry(null)
+        setSelectedUser(null)
       }
     };
     window.addEventListener("keydown", listener);
@@ -48,9 +48,9 @@ export default function App() {
           > 
             <button 
               className="marker-btn" 
-              onClick={(e) => { selectedCountry != null ? setSelectedCountry(null) :
+              onClick={(e) => { selectedUser != null ? setSelectedUser(null) :
                 //e.preventDefault();
-                setSelectedCountry(country);
+                setSelectedUser(country);
             }}
             >
               <img src="info.svg" alt="info icon"/>
@@ -58,18 +58,18 @@ export default function App() {
           </Marker>
         ))}
 
-        {selectedCountry ? (
+        {selectedUser ? (
           <Popup 
-            latitude={selectedCountry.geometry.coordinates[1]}
-            longitude={selectedCountry.geometry.coordinates[0]}
+            latitude={selectedUser.geometry.coordinates[1]}
+            longitude={selectedUser.geometry.coordinates[0]}
             closeButton={true}
             closeOnClick={false}
             closeOnMove={false}
             onClose={() => {
-              setSelectedCountry(null);
+              setSelectedUser(null);
             }}>
             <div>
-                {<InfoBox data={selectedCountry.properties}/>}
+                {<InfoBox data={selectedUser.properties}/>}
             </div>
           </Popup>
         ) : null }
