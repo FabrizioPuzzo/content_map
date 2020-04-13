@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import ReactMapGl, {Marker, Popup } from "react-map-gl";
-import * as countryData from "./data/data_user.json";
+import * as userData from "./data/data_gp.json";
 import InfoBox from './comp/InfoBox.js'
 
 export default function App() {
@@ -40,7 +40,7 @@ export default function App() {
         }
       }
       >
-        {countryData.features.map(country => (
+        {userData.features.map(country => (
           <Marker 
             key={country.properties.ID} 
             latitude={country.geometry.coordinates[1]}
