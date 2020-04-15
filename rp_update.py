@@ -13,7 +13,7 @@ class RepUpdater(object):
             commit_msg = 'Data_update '+ now.strftime("%m/%d/%Y, %H:%M:%S")
         
         repo = Repo(path_repo)
-        repo.git.add(u=True)
+        repo.git.add(A=True)
         repo.index.commit(commit_msg)
         origin = repo.remote(name='origin')
         origin.push()
