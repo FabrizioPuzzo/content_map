@@ -59,6 +59,7 @@ class InfoBox extends Component {
                 <div className="analysisBannerContent">
                   <h3>Tweet Analysis - NLP</h3>
                   <p>{this.props.data.start_analysis} to {this.props.data.end_analysis}</p>
+                  <p>Number of tweets analysed: {this.props.data.n_tweets_analysed}</p>
                 </div>
             </div>
 
