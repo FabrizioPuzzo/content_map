@@ -69,6 +69,7 @@ class InfoBox extends Component {
               <tr>
                   <th>Entity</th>
                   <th>Times mentioned</th> 
+                  <th>Total likes</th>
                   <th>Average Sentiment</th>
               </tr>
               </thead>
@@ -76,26 +77,31 @@ class InfoBox extends Component {
               <tr>
                   <td>{this.props.data.entities[0]}</td>
                   <td>{this.props.data.entity_count[0]}</td>
+                  <td>{this.props.data.fav_cnts[0]}</td>
                   <td>{(Math.round(this.props.data.sentiments[0] * 10) / 10).toFixed(2)}</td>
               </tr>
               <tr>
                   <td>{this.props.data.entities[1]}</td>
                   <td>{this.props.data.entity_count[1]}</td>
+                  <td>{this.props.data.fav_cnts[1]}</td>
                   <td>{(Math.round(this.props.data.sentiments[1] * 10) / 10).toFixed(2)}</td>
               </tr>
               <tr>
                   <td>{this.props.data.entities[2]}</td>
                   <td>{this.props.data.entity_count[2]}</td>
+                  <td>{this.props.data.fav_cnts[2]}</td>
                   <td>{(Math.round(this.props.data.sentiments[2] * 10) / 10).toFixed(2)}</td>
               </tr>
               <tr>
                   <td>{this.props.data.entities[3]}</td>
                   <td>{this.props.data.entity_count[3]}</td>
+                  <td>{this.props.data.fav_cnts[3]}</td>
                   <td>{(Math.round(this.props.data.sentiments[3] * 10) / 10).toFixed(2)}</td>
               </tr>
               <tr>
                   <td>{this.props.data.entities[4]}</td>
                   <td>{this.props.data.entity_count[4]}</td>
+                  <td>{this.props.data.fav_cnts[4]}</td>
                   <td>{(Math.round(this.props.data.sentiments[4] * 10) / 10).toFixed(2)}</td>
               </tr>
               </tbody>
