@@ -99,7 +99,7 @@ class InfoBox extends Component {
                   <td>{(Math.round(this.props.data.sentiments[3] * 10) / 10).toFixed(2)}</td>
               </tr>
               <tr>
-                  <td>{this.props.data.google_hrefs[4]}</td>
+                  <td><a target="_blank" href= {this.props.data.google_hrefs[4]}>{this.props.data.entities[4]}</a></td>
                   <td>{this.props.data.entity_count[4]}</td>
                   <td>{this.props.data.fav_cnts[4]}</td>
                   <td>{(Math.round(this.props.data.sentiments[4] * 10) / 10).toFixed(2)}</td>
