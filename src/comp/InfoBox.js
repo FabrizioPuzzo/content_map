@@ -27,9 +27,8 @@ class InfoBox extends Component {
     return (
       <Container>
         <Row>
-          <Col>
-          
-            <Card style={{ width: '18rem' }}>
+          <Col xs={4}>
+          <Card style={{ width: '18rem' }}>
               <div className="cardImg" style={{backgroundImage: "url("+ this.props.data.user.profile_banner_url +")" }}>
                 <div className="cardProfileImgBack" style={{backgroundImage: `url(${TwitterCircle})` }}>
                   <div className="cardImgContent">
@@ -62,8 +61,6 @@ class InfoBox extends Component {
                   <p>Number of tweets analysed: {this.props.data.n_tweets_analysed}</p>
                 </div>
             </div>
-
-          
             <Table striped bordered hover>
               <thead>
               <tr>
@@ -108,6 +105,8 @@ class InfoBox extends Component {
             </Table>
           </Col>
         </Row>
+
+
         <Row className="justify-content-md-center">
           <a className="authorBar"> Made by <strong>Fabrizio Puzzo</strong></a>
         </Row>
@@ -128,4 +127,7 @@ class InfoBox extends Component {
 
 export default InfoBox;
 
-/*<p> Tweets analysed from {this.props.data.start_analysis} to {this.props.data.end_analysis}</p>*/
+/*<p> Tweets analysed from {this.props.data.start_analysis} to {this.props.data.end_analysis}</p>
+xs lg="6"
+
+*/

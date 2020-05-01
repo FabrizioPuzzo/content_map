@@ -112,3 +112,52 @@
   background-repeat: no-repeat;
   background-position: top center;
 }
+
+.markerContainer{
+  align-items: center;
+  background-position: center;
+}
+
+.markerButton{
+  align-items: center;
+  background-position: center;
+}
+
+.imgMarkerCircImgBack {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  padding: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.imgMarkerCircImgContent {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.imgMarkerRecImgBack {
+  margin-top: -5px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2px;
+}

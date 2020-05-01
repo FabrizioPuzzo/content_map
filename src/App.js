@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import ReactMapGl, {Marker, Popup } from "react-map-gl";
-import * as userData from "./data/data_gp.json";
+import * as userData from "./data/data_dev.json";
 import InfoBox from './comp/InfoBox.js'
+import ImgMarker from './comp/ImgMarker.js'
 
 export default function App() {
   const [viewport, setViewport] = useState({
@@ -40,20 +40,22 @@ export default function App() {
         }
       }
       >
-        {userData.features.map(country => (
+        {userData.features.map(userData_ => (
           <Marker 
-            key={country.properties.ID} 
-            latitude={country.geometry.coordinates[1]}
-            longitude={country.geometry.coordinates[0]}
+            key={userData_.properties.ID} 
+            latitude={userData_.geometry.coordinates[1]}
+            longitude={userData_.geometry.coordinates[0]}
           > 
             <button 
               className="marker-btn" 
               onClick={(e) => { selectedUser != null ? setSelectedUser(null) :
                 //e.preventDefault();
-                setSelectedUser(country);
+                setSelectedUser(userData_);
             }}
             >
-              <img src="info.svg" alt="info icon"/>
+              <div>
+                {<ImgMarker data={userData_.properties}/>}
+              </div>
             </button>
           </Marker>
         ))}
